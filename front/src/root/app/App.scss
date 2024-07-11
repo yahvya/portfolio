@@ -1,0 +1,63 @@
+// polices d'écriture
+
+@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;500;600;700&display=swap";
+
+// niveaux z-index de l'application
+
+$z-index-levels: (
+    "normal": 1,
+    "up": 2,
+    "important": 3,
+    "most-important": 4
+);
+
+:root{
+    //thème
+
+    --background-color: #172340;
+    --background-color-details: 23,35,64;
+
+    --text-on-background: #7588a8;
+    --text-on-background-details: 117,136,168;
+
+    --on-background-color: #2e5896;
+    --on-background-color-details: 46,88,150;
+
+    --text-on-background-color: #f5f4f6;
+    --text-on-background-color-details: 245,244,246;
+
+    --icons-color: #f5f4f6;
+    --icons-color-details: 245,244,246;
+
+    // tailles de polices
+
+    --normal-fsize: 14px;
+    --small-fsize: 12.5px;
+    --x-small-fsize: 11.5px;
+    --large-fsize: 21.5px;
+    --x-large-fsize: 25px;
+
+    // polices de caractères
+
+    --basic-font: "Poppins","Open Sans","Arial","Montserat";
+    --special-font: "Poppins","Open Sans","Arial","Montserat";
+}
+
+// css globaux
+
+*{
+    box-sizing: border-box;
+    max-width: 100%;
+    z-index: map-get($z-index-levels,"normal");
+}
+
+// configuration du corps
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-on-background);
+    font-size: var(--normal-fsize);
+    font-family: var(--basic-font);
+}

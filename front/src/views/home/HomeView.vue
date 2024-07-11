@@ -1,5 +1,5 @@
 <script>
-    import ClassicNavbar from "../../components/classic-navbar/ClassicNavbar.vue"
+    import ClassicNavbar from "@/components/classic-navbar/ClassicNavbar.vue"
 
     export default{
         components: {
