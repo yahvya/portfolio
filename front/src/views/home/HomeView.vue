@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import ClassicNavbar from "@/components/classic-navbar/ClassicNavbar.vue"
 
     export default{

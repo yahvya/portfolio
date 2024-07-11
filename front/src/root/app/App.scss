@@ -3,15 +3,7 @@
 // polices d'écriture
 
 @import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;500;600;700&display=swap";
-
-// niveaux z-index de l'application
-
-$z-index-levels: (
-    "normal": 1,
-    "up": 2,
-    "important": 3,
-    "most-important": 4
-);
+@import "./vars.scss";
 
 :root{
     //thème
@@ -25,6 +17,9 @@ $z-index-levels: (
     --on-background-color: #2e5896;
     --on-background-color-details: 46,88,150;
 
+    --on-background-variant-color: #1E2E54;
+    --on-background-variant-color-details: 46,88,150;
+
     --text-on-background-color: #f5f4f6;
     --text-on-background-color-details: 245,244,246;
 
@@ -36,8 +31,8 @@ $z-index-levels: (
     --normal-fsize: 14px;
     --small-fsize: 12.5px;
     --x-small-fsize: 11.5px;
-    --large-fsize: 21.5px;
-    --x-large-fsize: 25px;
+    --large-fsize: 16.5px;
+    --x-large-fsize: 20px;
 
     // polices de caractères
 
@@ -53,6 +48,7 @@ $z-index-levels: (
     z-index: map-get($z-index-levels,"normal");
 }
 
+a,
 input,
 select,
 textarea,
@@ -61,6 +57,7 @@ button{
     color: inherit;
     font-size: inherit;
     outline: none;
+    text-decoration: none;
 }
 
 html{
@@ -76,4 +73,20 @@ body{
     color: var(--text-on-background);
     font-size: var(--normal-fsize);
     font-family: var(--basic-font);
+}
+
+
+// classes personnalisés
+
+.on-bg,
+.on-bg-variant{
+    color: var(--text-on-background-color);
+}
+
+.on-bg{
+    background-color: var(--on-background-color);
+}
+
+.on-bg-variant{
+    background-color: var(--on-background-variant-color);
 }

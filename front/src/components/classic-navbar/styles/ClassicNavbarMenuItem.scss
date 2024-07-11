@@ -1,0 +1,26 @@
+.menu-item{
+    text-transform: capitalize;
+    font-family: var(--special-font);
+
+    & a{
+        position: relative;
+
+        &::before{
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            content: "";
+            display: block;
+            width: 0;
+            height: 2.5px;
+            transition: width 0.2s;
+            background-color: var(--text-on-background);
+            border-radius: 2px;
+        }
+
+        &:hover::before{
+            width: 90%;
+        }
+    }
+}

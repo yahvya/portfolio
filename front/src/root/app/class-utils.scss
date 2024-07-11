@@ -31,14 +31,18 @@
     top: 0;
 }
 
+.centered{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .fixed{
     position: fixed;
+}
 
-    &-centered{
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+.absolute{
+    position: absolute;
 }
 
 .justify-center{
@@ -78,7 +82,7 @@
 }
 
 .great-gap{
-    gap: 25px;
+    gap: 30px;
 }
 
 .m-auto{

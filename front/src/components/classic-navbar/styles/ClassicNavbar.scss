@@ -1,0 +1,143 @@
+@import "@/root/app/vars.scss";
+
+// sélecteurs de menu à ouvrir
+$openMenuSelectors: (
+    "#app-nav-checkbox:checked ~ #classic-navbar .menu"
+);
+
+
+#app-nav-checkbox{
+    display: none;
+}
+
+#classic-navbar{
+    z-index: map-get($z-index-levels,"important");
+    padding: 20px;
+
+    .menu{
+        display: none;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        gap: 7px;
+        cursor: pointer;
+
+        span{
+            display: block;
+            width: 45px;
+            height: 3px;
+            background-color: var(--on-background-color);
+            transition:
+                    transform 0.2s,
+                    opacity 0.2s,
+                    width 0.2s,
+                    height 0.2s;
+        }
+
+        span:nth-child(2){
+            width: 42px;
+        }
+    }
+
+    .side-elements{
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+        font-size: var(--large-fsize);
+
+        .upp-icon{
+            padding: 4px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: var(--x-large-fsize);
+        }
+
+        i{
+            transition: font-size 0.2s;
+
+            &:hover{
+                font-size: var(--x-large-fsize);
+            }
+        }
+    }
+}
+
+// ouverture du menu
+
+@each $selector in $openMenuSelectors{
+    #{$openMenuSelectors}{
+        span:not(span:nth-child(2)){
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+        }
+
+        span:nth-child(2){
+            opacity: 0;
+        }
+
+        span:nth-child(1){
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+
+        span:nth-child(3){
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+    }
+}
+
+@media screen and (max-width: 970px) {
+    #classic-navbar{
+        width: fit-content;
+        padding: 0;
+        background-color: transparent;
+        left: 10px;
+
+        .menu{
+            display: flex;
+        }
+
+        .container{
+            transform: translateX(-100vw);
+            transition: transform 0.2s;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    #app-nav-checkbox:checked ~ #classic-navbar {
+        background-color: var(--on-background-variant-color);
+        width: 400px;
+        height: 100vh;
+        padding: 0 20px 20px;
+        overflow-y: auto;
+        left: 0;
+
+        .container{
+            display: block;
+            width: auto;
+            transform: none;
+        }
+
+        .menu{
+            margin-bottom: 10px;
+        }
+
+        .menu-items{
+            padding: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .side-elements{
+            position: relative;
+            flex-direction: row;
+            padding: 0;
+        }
+    }
+}
