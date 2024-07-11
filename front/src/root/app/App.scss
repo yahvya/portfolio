@@ -1,3 +1,5 @@
+@use "./class-utils";
+
 // polices d'écriture
 
 @import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;500;600;700&display=swap";
@@ -49,6 +51,20 @@ $z-index-levels: (
     box-sizing: border-box;
     max-width: 100%;
     z-index: map-get($z-index-levels,"normal");
+}
+
+input,
+select,
+textarea,
+button{
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    outline: none;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 // configuration du corps

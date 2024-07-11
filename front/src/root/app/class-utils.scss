@@ -1,0 +1,91 @@
+// classes utilitaire
+
+.flex-row,
+.flex-column{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.no-wrap{
+    flex-wrap: nowrap;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-upper{
+    text-transform: uppercase;
+}
+
+.sticky-top{
+    position: sticky;
+    top: 0;
+}
+
+.fixed{
+    position: fixed;
+
+    &-centered{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.align-end{
+    align-items: flex-end;
+}
+
+.align-start{
+    align-items: flex-start;
+}
+
+.small-gap{
+    gap: 15px;
+}
+
+.normal-gap{
+    gap: 20px;
+}
+
+.great-gap{
+    gap: 25px;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.block{
+    display: block;
+}
+
