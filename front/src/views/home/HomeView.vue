@@ -27,10 +27,12 @@
              * @brief Affiche l'élément à faire apparaitre suivant
              */
             appearNext():void{
-                if(this.$refs.appearElements.length <= this.appearIndex)
+                const appearsElements:Array<typeof TextAppear> = this.$refs.appearElements as Array<typeof TextAppear>;
+
+                if(appearsElements.length <= this.appearIndex)
                     return;
 
-                this.$refs.appearElements[this.appearIndex].appear();
+                appearsElements[this.appearIndex].appear();
                 this.appearIndex++;
             }
         },
@@ -58,7 +60,7 @@
 
         <TextAppear
             v-for="textToAppear in textsToAppear"
-            :time-between-letters-appear="30"
+            :time-between-letters-appear="25"
             @appear-end="appearNext"
             ref="appearElements"
             class="text-center"

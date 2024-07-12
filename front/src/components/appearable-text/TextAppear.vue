@@ -10,7 +10,7 @@
                 required: true
             }
         },
-        data(){
+        data():Record<string,Array<HTMLElement>>{
             return {
                 elements: []
             };
@@ -20,14 +20,16 @@
              * @brief Gère l'apparition du texte
              */
             appear():void{
+                const paragraph:HTMLParagraphElement = this.$refs.content as HTMLParagraphElement;
+
                 const interval = setInterval(():void => {
                     // vérification de fin d'apparition
                     if(this.elements.length == 0){
                         // re-création de la chaine
-                        this.$refs.content.textContent = Array.from(this.$refs.content.children)
-                            .map((child:HTMLElement) => {
+                        paragraph.textContent = Array.from(paragraph.children)
+                            .map((child:Element):string => {
                                 child.remove();
-                                return child.textContent;
+                                return child.textContent!;
                             }).join("");
                         clearInterval(interval);
                         this.$emit("appearEnd");
@@ -39,8 +41,10 @@
             }
         },
         mounted():void{
-            const text:string = this.$refs.content.textContent;
-            this.$refs.content.textContent = "";
+            const paragraph:HTMLParagraphElement = this.$refs.content as HTMLParagraphElement;
+
+            const text:string = paragraph.textContent!;
+            paragraph.textContent = "";
 
             // séparation et création des parties span
             text
@@ -49,7 +53,7 @@
                     const part = document.createElement("span");
 
                     part.textContent = textPart;
-                    this.$refs.content.append(part);
+                    paragraph.append(part);
                     this.elements.push(part);
                 });
         }

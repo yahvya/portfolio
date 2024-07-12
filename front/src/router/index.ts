@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from "@/views/home/HomeView.vue";
 
 const router = createRouter({
@@ -10,6 +10,6 @@ const router = createRouter({
       name: "Portfolio accueil"
     }
   ]
-})
+});
 
-export default router
+export default router;
