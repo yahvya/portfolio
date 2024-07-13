@@ -92,6 +92,9 @@ $openMenuSelectors: (
 
 @media screen and (max-width: 970px) {
     #classic-navbar{
+        position: fixed;
+        top: 0;
+        left: 0;
         width: fit-content;
         padding: 0;
         background-color: transparent;

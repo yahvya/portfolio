@@ -9,6 +9,14 @@
                 type: String,
                 required: true
             }
+        },
+        data(){
+            return {
+                fullname: "",
+                email: "",
+                reason: "",
+                message: ""
+            };
         }
     };
 </script>
@@ -18,7 +26,7 @@
         class="contact-form" 
         method="post" 
         :action="postLink"
-    >
+    >   
         <p 
             class="contact-message"
         ></p>
@@ -35,12 +43,12 @@
                     <i class="fa-solid fa-user an-icon"></i>
 
                     <input 
+                        v-model="fullname" 
                         type="text" 
                         name="fullname" 
                         minlength="2" 
                         maxlength="60" 
                         placeholder="Entrez votre nom et / ou prénom" 
-                        value="" 
                         required=""
                     />
                 </div>
@@ -51,10 +59,10 @@
                     <i class="fa-solid fa-envelope an-icon"></i>
                 
                     <input 
+                        v-model="email"
                         type="email" 
                         name="email" 
                         placeholder="Saisissez votre e-mail" 
-                        value="" 
                         required=""
                     />
                 </div>
@@ -65,18 +73,19 @@
                     <i class="fa-solid fa-circle-question an-icon"></i>
                     
                     <input 
+                        v-model="reason"
                         type="text" 
                         name="reason" 
                         placeholder="Raison du message" 
                         minlength="7" 
-                        maxlength="255" 
-                        value="" 
+                        maxlength="255"
                         required=""
                     />
                 </div>
             </div>
 
             <textarea  
+                v-model="message"
                 name="message" 
                 minlength="20" 
                 required="" 
@@ -89,3 +98,7 @@
         <button class="special-button">Envoyer</button>
     </form>
 </template>
+
+
+<style src="./ContactForm.scss" lang="scss" scoped>
+</style>

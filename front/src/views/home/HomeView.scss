@@ -3,9 +3,13 @@
 #home-content{
     width: 90%;
 
+    i{
+        color: var(--icons-color);
+    }
+
     .text-appear{
         font-size: var(--x-large-fsize);
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         line-height: 45px;
     }
 
@@ -18,7 +22,8 @@
     .section-title{
         text-transform: uppercase;
         text-align: center;
-        margin-top: 80px;
+        margin-top: 100px;
+        margin-bottom: 50px;
         font-size: var(--large-fsize);
     }
 
@@ -32,6 +37,15 @@
     }
 
     .contact-form{
+        width: 840px;
         margin: auto;
+        margin-bottom: 150px;
+    }
+
+    .look-down{
+        margin-top: 50px;
+        i{
+            color: var(--text-on-background);
+        }
     }
 }
