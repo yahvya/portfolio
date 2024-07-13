@@ -3,16 +3,19 @@
     import TextAppear from "@/components/appearable-text/TextAppear.vue";
     import LookDown from "@/components/look-down/LookDown.vue";
     import Timeline from "@/components/timeline/Timeline.vue";
+    import ContactForm from "@/components/contact-form/ContactForm.vue";
 
     export default{
         components: {
             TextAppear,
             ClassicNavbar: ClassicNavbar,
             LookDown: LookDown,
-            Timeline: Timeline
+            Timeline: Timeline,
+            ContactForm: ContactForm
         },
         data():Record<string,any>{
           return {
+                contactLink: "#",
                 timelineConfig: [],
                 appearIndex: 0,
                 textsToAppear: [
@@ -131,6 +134,15 @@
         <p
             class="section-title"
         >Envie de me contacter ?</p>
+
+        <ContactForm
+            :postLink="contactLink"
+            areaMessage="Essayez d'être le plus explicite possible pour faciliter l'échange ;)"
+        >
+            <template #security-tags>
+                <input type="hidden" name="token" value="#">
+            </template>
+        </ContactForm>
     </div>
 </template>
 
