@@ -1,0 +1,13 @@
+.look-down{
+    font-size: var(--x-large-fsize);
+
+    i{
+        animation: down-animation 0.4s linear infinite alternate;    
+    }
+}
+
+@keyframes down-animation {
+    100%{
+        transform: translateY(20px);
+    }
+}

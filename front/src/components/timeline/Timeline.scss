@@ -1,0 +1,38 @@
+@import "./TimelineElement.scss";
+
+@mixin timeline($breakpoint: 745px){
+    .timeline{
+        .timeline-element:nth-child(odd) {
+            border-right: 2px var(--on-background-color) solid;
+            padding-right: 50px;
+        }
+    
+        .timeline-element:nth-child(even) {
+            margin-left: 55%;
+            border-left: 2px var(--on-background-color) solid;
+            padding-left: 50px;
+        }
+    }
+    
+    @media screen and (max-width: $breakpoint) {
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .timeline-element:not(.timeline-element:last-child)::before {
+                content: "";
+                display: block;
+                width: 2px;
+                height: 30px;
+                background-color: var(--on-background-color);
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    } 
+    
+    @include timelineElement($breakpoint);
+}

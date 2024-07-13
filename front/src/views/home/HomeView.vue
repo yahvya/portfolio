@@ -1,19 +1,24 @@
 <script lang="ts">
     import ClassicNavbar from "@/components/classic-navbar/ClassicNavbar.vue"
     import TextAppear from "@/components/appearable-text/TextAppear.vue";
+    import LookDown from "@/components/look-down/LookDown.vue";
+    import Timeline from "@/components/timeline/Timeline.vue";
 
     export default{
         components: {
             TextAppear,
-            ClassicNavbar: ClassicNavbar
+            ClassicNavbar: ClassicNavbar,
+            LookDown: LookDown,
+            Timeline: Timeline
         },
         data():Record<string,any>{
           return {
-              appearIndex: 0,
-              textsToAppear: [
-                  "Salut, je me présente Yahaya ;) passionné de programmation et jeune développeur fullstack.",
-                  "Découvrez-en davantage sur moi en scrollant dans la page ;)"
-              ]
+                timelineConfig: [],
+                appearIndex: 0,
+                textsToAppear: [
+                    "Salut, je me présente Yahaya ;) passionné de programmation et jeune développeur fullstack.",
+                    "Découvrez-en davantage sur moi en scrollant dans la page ;)"
+                ]
           };
         },
         methods: {
@@ -22,6 +27,7 @@
              */
             onPageLoad():void{
                 this.appearNext();
+                this.loadTimeline();
             },
             /**
              * @brief Affiche l'élément à faire apparaitre suivant
@@ -34,6 +40,34 @@
 
                 appearsElements[this.appearIndex].appear();
                 this.appearIndex++;
+            },
+            /**
+             * @brief Charge la timeline
+             */
+            loadTimeline():void{
+                /**
+                 * @todo supprimer le test
+                 */
+                this.timelineConfig = [
+                    {
+                        title: "Master informatique dev web et mobile fullstack",
+                        from: "2023"
+                    },
+                    {
+                        title: "licence informatique",
+                        from: "2020",
+                        to: "2023"
+                    },
+                    {
+                        title: "Bac",
+                        from: "2019",
+                        to: "2020"
+                    },
+                    {
+                        title: "Autodidacte",
+                        from: "2019"
+                    }
+                ];
             }
         },
         mounted():void{
@@ -65,8 +99,41 @@
             ref="appearElements"
             class="text-center"
         >{{ textToAppear }}</TextAppear>
+
+        <LookDown
+            id="about-me"
+        />
+
+        <p
+            class="section-title"
+        >Mon parcours</p>
+
+        <Timeline
+            :timelineConfig="timelineConfig"
+        />
+
+        <p
+            class="section-title"
+        >Ce que j'aime faire</p>
+
+        <p
+            class="section-title"
+        >Que puis-je faire pour vous ?</p>
+
+        <p
+            class="section-title"
+        >Mes projets</p>
+
+        <p
+            class="section-title"
+        >Stack technique</p>
+
+        <p
+            class="section-title"
+        >Envie de me contacter ?</p>
     </div>
 </template>
 
-<style src="./HomeView.scss" scoped lang="scss">
+<style src="./HomeView.scss" lang="scss">
+    
 </style>

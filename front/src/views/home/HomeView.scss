@@ -1,14 +1,33 @@
+@import "@/components/timeline/Timeline.scss";
+
 #home-content{
     width: 90%;
 
     .text-appear{
         font-size: var(--x-large-fsize);
         margin-bottom: 30px;
+        line-height: 45px;
     }
 
     .poster-image{
         margin-top: 20px;
         margin-bottom: 60px;
         width: 230px;
+    }
+
+    .section-title{
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 80px;
+        font-size: var(--large-fsize);
+    }
+
+    @include timeline(750px);
+
+    .timeline {
+        width: 700px;
+        max-width: 90%;
+        margin: auto;
+        margin-top: 60px;
     }
 }
