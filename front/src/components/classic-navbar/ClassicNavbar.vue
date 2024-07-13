@@ -8,7 +8,23 @@
                 return classicNavbarConfig;
             }
         },
-        components: {ClassicNavbarMenuItem}
+        components: {
+            ClassicNavbarMenuItem: ClassicNavbarMenuItem
+        },
+        props: {
+            contactLink: {
+                type: String,
+                required: true
+            },
+            linkedinLink: {
+                type: String,
+                required: true
+            },
+            githubLink: {
+                type: String,
+                required: true
+            }
+        }
     };
 </script>
 
@@ -46,21 +62,20 @@
                 class="side-elements flex-column align-center small-gap"
             >
                 <a
-                    href="#"
+                    href="{{ githubLink }}"
                     title="Visitez mon github"
                     target="_blank"
                 ><i class="fa-brands fa-github"></i></a>
 
                 <a
-                    href="#"
+                    href="{{ linkedinLink }}"
                     title="Visitez mon profil linkedin"
                     target="_blank"
                 ><i class="fa-brands fa-linkedin-in"></i></a>
 
                 <a
-                    href="#"
-                    title="Visitez mon profil linkedin"
-                    target="_blank"
+                    :href="contactLink"
+                    title="Contactez moi"
                 ><i class="fa-solid fa-envelope"></i></a>
 
                 <a

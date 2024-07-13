@@ -91,7 +91,11 @@
 </script>
 
 <template>
-    <ClassicNavbar/>
+    <ClassicNavbar
+        contactLink="#contact"
+        linkedinLink="#"
+        githubLink="#"
+    />
 
     <div
         id="home-content"
@@ -129,6 +133,7 @@
 
         <CircularImages
             :images="activitiesImages"
+            id="services"
         />
 
         <p
@@ -150,6 +155,7 @@
         <ContactForm
             :postLink="contactLink"
             areaMessage="Essayez d'être le plus explicite possible pour faciliter l'échange ;)"
+            id="contact"
         >
             <template #security-tags>
                 <input type="hidden" name="token" value="#">
