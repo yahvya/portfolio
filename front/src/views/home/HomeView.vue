@@ -4,6 +4,7 @@
     import LookDown from "@/components/look-down/LookDown.vue";
     import Timeline from "@/components/timeline/Timeline.vue";
     import ContactForm from "@/components/contact-form/ContactForm.vue";
+    import CircularImages from "@/components/circular-images/CircularImages.vue";
 
     export default{
         components: {
@@ -11,7 +12,8 @@
             ClassicNavbar: ClassicNavbar,
             LookDown: LookDown,
             Timeline: Timeline,
-            ContactForm: ContactForm
+            ContactForm: ContactForm,
+            CircularImages: CircularImages
         },
         data():Record<string,any>{
           return {
@@ -21,6 +23,12 @@
                 textsToAppear: [
                     "Salut, je me présente Yahaya ;) passionné de programmation et jeune développeur fullstack.",
                     "Découvrez-en davantage sur moi en scrollant dans la page ;)"
+                ],
+                activitiesImages: [
+                    {"link": "https://yahaya-bathily.fr/src/public/images/activities-images/2.jpeg",alt: "Image"},
+                    {"link": "https://yahaya-bathily.fr/src/public/images/activities-images/2.jpeg",alt: "Image"},
+                    {"link": "https://yahaya-bathily.fr/src/public/images/activities-images/2.jpeg",alt: "Image"},
+                    {"link": "https://yahaya-bathily.fr/src/public/images/activities-images/2.jpeg",alt: "Image"},
                 ]
           };
         },
@@ -118,6 +126,10 @@
         <p
             class="section-title"
         >Ce que j'aime faire</p>
+
+        <CircularImages
+            :images="activitiesImages"
+        />
 
         <p
             class="section-title"

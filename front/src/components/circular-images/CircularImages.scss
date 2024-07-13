@@ -1,0 +1,49 @@
+.circular-images{
+    .elements{
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: _3d_rotation 15s linear infinite;
+            margin: auto auto 50px;
+
+            &:hover{
+                animation-play-state: paused;
+            }
+
+            span {
+                counter-increment: activitiesCounter;
+                position: absolute;
+                transform-origin: center;
+                transform-style: preserve-3d;
+                transform: rotateY(calc(var(--i) * 100deg)) translateZ(150px);
+            }
+
+            img {
+                position: absolute;
+                object-fit: cover;
+            }
+        }
+
+        div img,
+        div span {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+  
+  /* adjust values there based on the count of images */
+@keyframes _3d_rotation {
+    0% {
+      transform: perspective(700px) rotateY(0deg);
+    }
+  
+    100% {
+      transform: perspective(700px) rotateY(360deg);
+    }
+}
+  
