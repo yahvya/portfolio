@@ -5,6 +5,7 @@
     import Timeline from "@/components/timeline/Timeline.vue";
     import ContactForm from "@/components/contact-form/ContactForm.vue";
     import CircularImages from "@/components/circular-images/CircularImages.vue";
+    import Service from "@/components/services/Service.vue";
 
     export default{
         components: {
@@ -13,16 +14,18 @@
             LookDown: LookDown,
             Timeline: Timeline,
             ContactForm: ContactForm,
-            CircularImages: CircularImages
+            CircularImages: CircularImages,
+            Service: Service
         },
         data():Record<string,any>{
           return {
+                services: [],
                 contactLink: "#",
                 timelineConfig: [],
                 appearIndex: 0,
                 textsToAppear: [
-                    "Salut, je me présente Yahaya ;) passionné de programmation et jeune développeur fullstack.",
-                    "Découvrez-en davantage sur moi en scrollant dans la page ;)"
+                    "<Profile description=\" Salut, je me présente Yahaya ;) passionné de programmation et jeune développeur fullstack. \"/>",
+                    "<Instruction text=\" Découvrez-en davantage sur moi en scrollant dans la page ;) \"/>"
                 ],
                 activitiesImages: [
                     {"link": "https://yahaya-bathily.fr/src/public/images/activities-images/2.jpeg",alt: "Image"},
@@ -39,6 +42,7 @@
             onPageLoad():void{
                 this.appearNext();
                 this.loadTimeline();
+                this.loadServices();
             },
             /**
              * @brief Affiche l'élément à faire apparaitre suivant
@@ -77,6 +81,16 @@
                     {
                         title: "Autodidacte",
                         from: "2019"
+                    }
+                ];
+            },
+            /**
+             * @brief Charge les 
+             */
+             loadServices():void{
+                this.services = [
+                    {
+                        serviceName: "Nom du service de test"
                     }
                 ];
             }
@@ -139,6 +153,13 @@
         <p
             class="section-title"
         >Que puis-je faire pour vous ?</p>
+
+        <div class="services">
+            <Service
+                v-for="service in services"
+                :serviceConfig="service"
+            />
+        </div>
 
         <p
             class="section-title"
